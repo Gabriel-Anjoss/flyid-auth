@@ -1,0 +1,17 @@
+export const es: Record<string, string> = {
+  'forgot.title': 'Recuperar contraseña',
+  'forgot.description': 'Ingresa tu correo y te enviaremos un enlace de recuperación.',
+  'forgot.submit': 'ENVIAR',
+  'forgot.cancel': 'CANCELAR',
+  'forgot.success': '¡Correo enviado! Revisa tu bandeja de entrada.',
+  'forgot.error': 'No se pudo enviar el correo. Verifica la dirección.',
+  'login.title': 'Iniciar Sesión',
+  'login.email': 'Correo *',
+  'login.password': 'Contraseña *',
+  'login.submit': 'ENVIAR',
+  'login.forgot': 'OLVIDÉ MI CONTRASEÑA',
+  'login.error': 'Correo o contraseña inválidos',
+  'home.welcome': '¡Bienvenido, {name}!',
+  'home.logout': 'Salir',
+  'lang.label': 'ES',
+};

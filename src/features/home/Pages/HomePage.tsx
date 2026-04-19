@@ -1,14 +1,15 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { signOut } from "firebase/auth";
 import { auth } from "../../auth/services/firebaseAuth";
 import { useAuth } from "../../auth/hooks/useAuth";
+import Header from "../../auth/components/Header";
+import { useIntl } from "react-intl";
 
 function HomePage() {
   const { user, loading } = useAuth();
+  const intl = useIntl();
 
   if (loading) return <p>Carregando...</p>;
-
- 
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -16,13 +17,18 @@ function HomePage() {
   };
 
   return (
-    <Stack spacing={2} alignItems="center" mt={10}>
-      <Typography variant="h5">Bem-vindo!</Typography>
+    <div style={{ minHeight: "100vh", backgroundColor: "#f5f5f5" }}>
+      <Header showLogout onLogout={handleLogout} />
 
-      <Button variant="contained" onClick={handleLogout}>
-        Logout
-      </Button>
-    </Stack>
+      <div style={{ padding: "32px 24px" }}>
+        <Typography variant="h5">
+          {intl.formatMessage(
+            { id: "home.welcome" },
+            { name: user?.displayName ?? user?.email ?? "Usuário" }
+          )}
+        </Typography>
+      </div>
+    </div>
   );
 }
 

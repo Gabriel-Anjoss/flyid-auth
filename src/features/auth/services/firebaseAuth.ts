@@ -1,23 +1,28 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 
-// Config do Firebase
+// Configuração do Firebase via variáveis de ambiente
 const firebaseConfig = {
-  apiKey: "AIzaSyAY7KE6PMjZ75_4FefH2hfmKQZU6nJMLj0",
-  authDomain: "flyid-auth.firebaseapp.com",
-  projectId: "flyid-auth",
-  storageBucket: "flyid-auth.firebasestorage.app",
-  messagingSenderId: "614613713068",
-  appId: "1:614613713068:web:e7cb9d976adf006dda9f09",
+  apiKey:            import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain:        import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId:         import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket:     import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId:             import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-// Inicializa app
+// Inicializa o app Firebase
 const app = initializeApp(firebaseConfig);
 
-// Auth
+// Instância de autenticação
 export const auth = getAuth(app);
 
-// Login
+// Realiza login com e-mail e senha
 export const login = async (email: string, password: string) => {
   return signInWithEmailAndPassword(auth, email, password);
+};
+
+// Envia e-mail de redefinição de senha
+export const resetPassword = async (email: string): Promise<void> => {
+  await sendPasswordResetEmail(auth, email);
 };

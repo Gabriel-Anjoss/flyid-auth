@@ -1,0 +1,17 @@
+export const ptBR: Record<string, string> = {
+  'forgot.title': 'Recuperar senha',
+  'forgot.description': 'Informe seu e-mail e enviaremos um link de redefinição.',
+  'forgot.submit': 'ENVIAR',
+  'forgot.cancel': 'CANCELAR',
+  'forgot.success': 'E-mail enviado! Verifique sua caixa de entrada.',
+  'forgot.error': 'Não foi possível enviar o e-mail. Verifique o endereço informado.',
+  'login.title': 'Entrar',
+  'login.email': 'Email *',
+  'login.password': 'Senha *',
+  'login.submit': 'ENVIAR',
+  'login.forgot': 'ESQUECI MINHA SENHA',
+  'login.error': 'Email ou senha inválidos',
+  'home.welcome': 'Bem-vindo, {name}!',
+  'home.logout': 'Sair',
+  'lang.label': 'PT-BR',
+};
